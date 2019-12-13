@@ -1,0 +1,43 @@
+
+
+.active {
+    border-bottom: 2px solid #4d7ecc;
+}
+
+.navbar {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    line-height: 30px;
+    margin: 20px 2% 10px 2%;
+    padding: 3% 5% 3% 5%;
+}
+
+.navbar-right {
+    margin-left: 3%;
+    font-size: 20px;
+}
+
+.nav-link {
+    color: inherit;
+    margin: 0 40px 0 0px;
+}
+
+.nav-link-disabled {
+    color: lightgrey !important;
+    pointer-events: none !important;
+}
+
+
+@media all and (max-width: 765px) {
+    .navbar {
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+    }
+
+    .navbar-right {
+        margin-top: 5%;
+    }
+  }
+  
