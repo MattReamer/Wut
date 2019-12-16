@@ -5,7 +5,8 @@ import Navi from './Nav'
 import { Component } from 'react';
 import LandingPage from "./components/LandingPage/LandingPage.js";
 import About from './components/About/About';
-import SignUpExample from './components/Login/Signup/signup';
+import Register from './components/Register/register';
+import Login from './components/Login/login'
 
 export default class App extends Component {
   constructor(props) {
@@ -21,7 +22,8 @@ export default class App extends Component {
           <Navi></Navi>
           <Route exact path="/" component={LandingPage} />
           <Route exact path="/about" component={About} />
-          <Route exact path="/signup" component={SignUpExample} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path='/login' component={Login} />
         </div>
       </Router>
     );

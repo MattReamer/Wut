@@ -1,0 +1,19 @@
+.login-form{
+    width: 100%;
+    max-width: 350px;
+    padding: 17px;
+    margin: auto;
+    height: 100%
+}
+.login-card{
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    height: 100%;
+
+}
+.login-container{
+    background:linear-gradient(rgba(163, 162, 162, 0.5),transparent);
+    background-color: white;
+    padding: 2%
+}

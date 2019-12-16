@@ -4,7 +4,6 @@ import "./LandingPage.css";
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Jumbotron from 'react-bootstrap/Jumbotron'
-import Form from 'react-bootstrap/Form'
 
 export default class LandingPage extends Component {
     constructor(props) {

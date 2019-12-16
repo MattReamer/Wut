@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, NavDropdown, Button, FormControl, Form } from 'react-bootstrap';
+import { Nav, Navbar, NavDropdown } from 'react-bootstrap';
 
 import "./css/Nav.css";
 
@@ -20,12 +20,9 @@ export default class Navi extends Component {
                             <NavDropdown.Divider />
                             <NavDropdown.Item href="logout">Logout</NavDropdown.Item>
                         </NavDropdown>
-                        <Nav.Link href="signup">Sign Up</Nav.Link>
                     </Nav>
-                    <Form inline>
-                        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                        <Button variant="outline-success">Search</Button>
-                    </Form>
+                    <Nav.Link className="mr-sm-1" href="login">Sign In</Nav.Link>
+                    <Nav.Link className="mr-sm-1" href="register">Register</Nav.Link>
                 </Navbar.Collapse>
             </Navbar>
 
