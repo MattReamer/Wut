@@ -23,7 +23,7 @@ export default class About extends Component {
     }
 
     callBackendAPI = async () => {
-        const response = await fetch('/api/getList');
+        const response = await fetch('/api/about');
         const body = await response.json();
 
         if (response.status !== 200) {
