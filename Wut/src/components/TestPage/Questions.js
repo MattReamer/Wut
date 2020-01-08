@@ -4,9 +4,9 @@ import "./Questions.css";
 import Carousel from 'react-images';
 import Card from 'react-bootstrap/Card'
 import { BarLoader } from 'react-spinners';
-import { CardDeck } from 'react-bootstrap';
+import { Drawer } from '@material-ui/core';
+import { CardDeck, Button, Container, Row, Col, Image } from 'react-bootstrap';
 
-//TODO: Add flex styling so cards dynamically line up correctly with page size changes
 
 //Probably will use this component as a template for questions or something
 class Questions extends Component {
@@ -38,6 +38,11 @@ class Questions extends Component {
         await this.setState({ loading: false });
     }
 
+    toggleSidebar = () => {
+        const { openSidebar } = this.state;
+        openSidebar ? this.setState({ openSidebar: false}) : this.setState({ openSidebar: true}); 
+    }
+
     render() {
     
         const {error, loading} = this.state
@@ -53,47 +58,67 @@ class Questions extends Component {
         //Rendering a single card here, but in the future map an array of questions
         //To output all the questions for a topic
         return (
-            <CardDeck style= {{ width: '80%', margin: '10%'}}>
-                <Card>
-                    <Card.Header>{this.exampleData.title}</Card.Header>
-                    <Card.Img variant='top' src={this.exampleData.image} />
-                    <Card.Body>
-                        <Card.Title>{this.exampleData.title}</Card.Title>
-                        <blockquote className="blockquote mb-0" style= {{ textAlign: 'left' }}>
-                            <p>{this.exampleData.desc}</p>
-                            <footer className="blockquote-footer">
-                                {this.exampleData.author}
-                            </footer>
-                        </blockquote>
-                    </Card.Body>
-                </Card>
-                <Card>
-                    <Card.Header>{this.exampleData.title}</Card.Header>
-                    <Card.Img variant='top' src={this.exampleData.image} />
-                    <Card.Body>
-                        <Card.Title>{this.exampleData.title}</Card.Title>
-                        <blockquote className="blockquote mb-0" style= {{ textAlign: 'left' }}>
-                            <p>{this.exampleData.desc}</p>
-                            <footer className="blockquote-footer">
-                                {this.exampleData.author}
-                            </footer>
-                        </blockquote>
-                    </Card.Body>
-                </Card>
-                <Card>
-                    <Card.Header>{this.exampleData.title}</Card.Header>
-                    <Card.Img variant='top' src={this.exampleData.image} />
-                    <Card.Body>
-                        <Card.Title>{this.exampleData.title}</Card.Title>
-                        <blockquote className="blockquote mb-0" style= {{ textAlign: 'left' }}>
-                            <p>{this.exampleData.desc}</p>
-                            <footer className="blockquote-footer">
-                                {this.exampleData.author}
-                            </footer>
-                        </blockquote>
-                    </Card.Body>
-                </Card>
-            </CardDeck>
+            <Container>
+                {/* Drawer for question information */}
+                <Drawer
+                    width={'auto'}
+                    anchor='left'
+                    open={this.state.openSidebar}
+                    onClose={this.toggleSidebar}
+                >
+                    {/* Populate this with information using question ID as ref */}
+                    <p style={{ minWidth: '200px', textAlign: 'center'}}><strong>Hey big boy</strong></p>
+                    <Image src="https://i.imgur.com/vQSQGFd.jpg" />
+                </Drawer>
+                <Row>
+                    <Col>
+                        <CardDeck style= {{ width: '80%', margin: '10%' }}>
+                            <Card>
+                                <Card.Header>{this.exampleData.title}</Card.Header>
+                                <Card.Img variant='top' src={this.exampleData.image} />
+                                <Card.Body>
+                                    <Card.Title>{this.exampleData.title}</Card.Title>
+                                    <blockquote className="blockquote mb-0" style= {{ textAlign: 'left' }}>
+                                        <p>{this.exampleData.desc}</p>
+                                        <footer className="blockquote-footer">
+                                            {this.exampleData.author}
+                                        </footer>
+                                        <Button variant="secondary" style={{ marginTop: '10px', float: 'right' }} onClick={this.toggleSidebar}>Stats</Button>
+                                    </blockquote>
+                                </Card.Body>
+                            </Card>
+                            <Card>
+                                <Card.Header>{this.exampleData.title}</Card.Header>
+                                <Card.Img variant='top' src={this.exampleData.image} />
+                                <Card.Body>
+                                    <Card.Title>{this.exampleData.title}</Card.Title>
+                                    <blockquote className="blockquote mb-0" style= {{ textAlign: 'left' }}>
+                                        <p>{this.exampleData.desc}</p>
+                                        <footer className="blockquote-footer">
+                                            {this.exampleData.author}
+                                        </footer>
+                                        <Button variant="secondary" style={{ marginTop: '10px', float: 'right' }} onClick={this.toggleSidebar}>Stats</Button>
+                                    </blockquote>
+                                </Card.Body>
+                            </Card>
+                            <Card>
+                                <Card.Header>{this.exampleData.title}</Card.Header>
+                                <Card.Img variant='top' src={this.exampleData.image} />
+                                <Card.Body>
+                                    <Card.Title>{this.exampleData.title}</Card.Title>
+                                    <blockquote className="blockquote mb-0" style= {{ textAlign: 'left' }}>
+                                        <p>{this.exampleData.desc}</p>
+                                        <footer className="blockquote-footer">
+                                            {this.exampleData.author}
+                                        </footer>
+                                        <Button variant="secondary" style={{ marginTop: '10px', float: 'right' }} onClick={this.toggleSidebar}>Stats</Button>
+                                    </blockquote>
+                                </Card.Body>
+                            </Card>
+                        </CardDeck>
+                    </Col>
+                </Row>
+            </Container>
         );
     }
 }
